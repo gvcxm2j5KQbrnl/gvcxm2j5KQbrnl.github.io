@@ -1,115 +1,166 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>avalanches.wtf</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #0b0b0c;
-      color: #f2f2f2;
-      font-family: Inter, Arial, sans-serif;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+const titleText = "avalanches.wtf";
+let index = 0;
 
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
-    }
+function typeTitle() {
+  document.title = titleText.slice(0, index + 1);
+  index++;
+  if (index < titleText.length) {
+    setTimeout(typeTitle, 200); // speed in ms
+  } else {
+    setTimeout(() => {
+      index = 0;
+      typeTitle();
+    }, 2000); // pause before repeating
+  }
+}
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 20px 20px 100px; /* reduced top padding to 20px */
-    }
+typeTitle();
+</script>
 
-    h1 {
-      font-size: 46px;
-      margin: 0 0 5px 0; /* small gap below heading */
-      font-weight: 700;
-    }
+<title>avalanches.wtf</title>
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #0b0b0c;
+  color: #f2f2f2;
+  font-family: Inter, Arial, sans-serif;
+}
 
-    .subtitle {
-      color: #9ca3af;
-      font-size: 17px;
-      margin: 0 0 10px 0; /* smaller gap before badge */
-    }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+}
 
-    iframe {
-      width: 100%;
-      max-width: 500px;
-      height: 350px;
-      margin: 0 auto 15px; /* small gap after badge */
-      border: none;
-      display: block;
-    }
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 20px 120px;
+}
 
-    .section-title {
-      font-size: 24px;
-      font-weight: 600;
-      margin: 20px 0 10px;
-    }
+.typing {
+  font-size: 46px;
+  font-weight: 700;
+  border-right: 3px solid #a78bfa;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  margin: 0 auto 10px;
+  animation: typing 2s steps(14) forwards, blink 0.5s step-end infinite alternate;
+}
 
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 14ch; } /* number of characters */
+}
 
-    .socials img {
-      width: 26px;
-    }
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 
-    .projects p {
-      margin: 0;
-    }
+h1 {
+  font-size: 46px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  background: linear-gradient(90deg, #a78bfa, #f472b6, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  animation: gradient-animation 3s linear infinite;
+}
 
-    a {
-      color: #a78bfa;
-      text-decoration: none;
-      font-weight: 500;
-    }
+@keyframes gradient-animation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
 
-    footer {
-      padding: 40px 0 20px; /* keeps footer further down */
-      color: #9ca3af;
-      font-size: 13px;
-    }
-  </style>
+.subtitle {
+  color: #9ca3af;
+  font-size: 17px;
+  margin: 0 0 10px 0;
+}
+
+.badge-thm-wrapper {
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px 0 10px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.socials img {
+  width: 26px;
+}
+
+.projects p {
+  margin: 0;
+}
+
+a {
+  color: #a78bfa;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  padding: 40px 0 20px;
+  color: #9ca3af;
+  font-size: 13px;
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>avalanches.wtf</h1>
-    <p class="subtitle">my space for learning and building things</p>
+<div class="container">
+  <h1 class="typing">avalanches.wtf</h1>
+  <p class="subtitle">my space for learning and building things</p>
 
-    <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4539207"></iframe>
-
-    <div class="section-title">socials</div>
-    <div class="socials">
-      <a href="https://discord.com/users/428575537917722625" target="_blank" rel="noopener noreferrer">
-        <img src="https://github.com/user-attachments/assets/32fb9caa-21c3-4ddb-9a9b-0ea52c56ed36" alt="discord">
-      </a>
-      <a href="https://steamcommunity.com/id/tyu/" target="_blank" rel="noopener noreferrer">
-        <img src="https://github.com/user-attachments/assets/cdfc895f-9366-47f3-b5a3-b6a2e8fa0b50" alt="steam">
-      </a>
-    </div>
-
-    <div class="section-title">projects</div>
-    <div class="projects">
-      <p><a href="https://github.com/gvcxm2j5KQbrnl/Local-Password-Manager" target="_blank" rel="noopener noreferrer">
-        Local Password Manager
-      </a></p>
-    </div>
+  <div class="badge-thm-wrapper">
+    <a href="https://tryhackme.com/p/taww" target="_blank">
+      <img src="https://tryhackme-badges.s3.amazonaws.com/taww.png" alt="THM Badge" width="280">
+    </a>
   </div>
 
-  <footer>© avalanches.wtf</footer>
+  <div class="section-title">socials</div>
+  <div class="socials">
+    <a href="https://discord.com/users/428575537917722625" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/user-attachments/assets/32fb9caa-21c3-4ddb-9a9b-0ea52c56ed36" alt="discord">
+    </a>
+    <a href="https://steamcommunity.com/id/tyu/" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/user-attachments/assets/cdfc895f-9366-47f3-b5a3-b6a2e8fa0b50" alt="steam">
+    </a>
+  </div>
+
+  <div class="section-title">projects</div>
+  <div class="projects">
+    <p><a href="https://github.com/gvcxm2j5KQbrnl/Local-Password-Manager" target="_blank" rel="noopener noreferrer">
+      Local Password Manager
+    </a></p>
+  </div>
+</div>
+
+<footer>© avalanches.wtf</footer>
 </body>
 </html>
